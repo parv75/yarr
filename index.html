@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Diwali</title>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background: linear-gradient(135deg, #19002e, #590044, #ff6a00);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: Georgia, serif;
+    color: white;
+    overflow: hidden;
+}
+.container {
+    padding: 30px;
+    width: 90%;
+    max-width: 500px;
+    border: 2px solid gold;
+    border-radius: 25px;
+    background: rgba(0,0,0,0.4);
+    box-shadow: 0 0 30px gold;
+}
+h1 {
+    color: #ffd700;
+    font-size: 38px;
+    text-shadow: 0 0 20px orange;
+    animation: glow 2s infinite alternate;
+}
+@keyframes glow {
+    from { text-shadow: 0 0 10px orange; }
+    to { text-shadow: 0 0 30px gold; }
+}
+.name {
+    font-size: 30px;
+    color: #ffdf70;
+    margin: 20px;
+}
+.diya {
+    font-size: 65px;
+    margin: 20px;
+    animation: move 1s infinite alternate;
+}
+@keyframes move {
+    from { transform: scale(1); }
+    to { transform: scale(1.2); }
+}
+p {
+    font-size: 18px;
+    line-height: 1.7;
+    margin: 15px 0;
+}
+button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    background: gold;
+    color: #4b004b;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+}
+button:hover {
+    background: orange;
+    transform: scale(1.05);
+}
+#message {
+    margin-top: 20px;
+    color: #ffdf70;
+    font-size: 20px;
+}
+.stars {
+    position: fixed;
+    font-size: 20px;
+    animation: fall 5s linear infinite;
+    pointer-events: none;
+}
+@keyframes fall {
+    0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="diya">🪔</div>
+    <h1>✨ Happy Diwali ✨</h1>
+    <div class="name">
+        From parv saini 
+    </div>
+    <p>
+        May this Diwali bring happiness,
+        success, prosperity and endless
+        smiles into your life.
+    </p>
+    <h2>🎆 शुभ दीपावली 🎆</h2>
+    <button onclick="showWish()">
+        Click For Surprise ❤️
+    </button>
+    <div id="message"></div>
+</div>
+<script>
+function showWish() {
+    document.getElementById("message").innerHTML =
+    "🪔 May your life shine brighter than thousands of diyas! <br><br> With Love, Parv Saini ❤️";
+}
+function createStar() {
+    let star = document.createElement("div");
+    star.className = "stars";
+    star.innerHTML = "✨";
+    star.style.left = Math.random() * 100 + "vw";
+    star.style.animationDuration = (2 + Math.random() * 4) + "s";
+    document.body.appendChild(star);
+    setTimeout(() => {
+        star.remove();
+    }, 6000);
+}
+setInterval(createStar, 300);
+</script>
+</body>
+</html>
